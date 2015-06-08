@@ -46,7 +46,7 @@ def decrypt(text, outfile):
         print "done"
 		
 
-def __main__(mode, input_file, output_file):
+def main(mode, input_file_name, output_file_name):
 		
 	input_file = open(input_file_name, "rb")
 	text = input_file.read()
@@ -65,7 +65,7 @@ def __main__(mode, input_file, output_file):
 
 if __name__ == '__main__':
 	if len(sys.argv) == 4:
-        main(sys.argv[1], sys.argv[2], sys.argv[3])
+		main(sys.argv[1], sys.argv[2], sys.argv[3])
     else:
         print "Usage: python %s (-e or -d) input_file output_file" % sys.argv[0]
 
