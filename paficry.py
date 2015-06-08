@@ -66,7 +66,7 @@ else:
 		print "start decryption"
 		decrypt(text, output_file_name)
 	else: 
-		print "-e - encription mode or -d - decryption mode"
+		print "-e : encription mode or -d : decryption mode"
  
 
 
