@@ -1,8 +1,11 @@
 #!/usr/bin/python
 
 import sys
-from Crypto.Cipher import AES
-
+try:
+    from Crypto.Cipher import AES
+except ImportError:
+    print 'Install PyCrypto'
+ 
 #inicialize key and aes mode
 
 key = '11111111111111111111111111111111'
@@ -43,18 +46,8 @@ def decrypt(text, outfile):
         print "done"
 		
 
-#start program
-
-if len(sys.argv) != 4:
-	print "Usage: python paficry.py (-e or -d) input_file output_file"
-else: 
-
-#inicialize files
-
-	mode = sys.argv[1]
-	input_file_name = sys.argv[2]
-	output_file_name = sys.argv[3]
-	
+def __main__(mode, input_file, output_file):
+		
 	input_file = open(input_file_name, "rb")
 	text = input_file.read()
 	input_file.close()
@@ -68,6 +61,15 @@ else:
 	else: 
 		print "-e : encription mode or -d : decryption mode"
  
+#start program
+
+if __name__ == '__main__':
+	if len(sys.argv) == 4:
+        main(sys.argv[1], sys.argv[2], sys.argv[3])
+    else:
+        print "Usage: python %s (-e or -d) input_file output_file" % sys.argv[0]
+
+	
 
 
 
